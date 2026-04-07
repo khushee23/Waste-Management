@@ -18,7 +18,7 @@ const userSchema = new mongoose.Schema({
         type: Number,
         required: true
     },
-    class: {
+    grade: {
         type: String,
         required: true
     },
