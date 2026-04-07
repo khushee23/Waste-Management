@@ -1,0 +1,19 @@
+{
+  "name": "waste-management-system",
+  "version": "1.0.0",
+  "description": "waste management system",
+  "main": "index.js",
+  "scripts": {
+    "dev": "node index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/khushee23/Waste-Management.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/khushee23/Waste-Management/issues"
+  },
+  "homepage": "https://github.com/khushee23/Waste-Management#readme"
+}
