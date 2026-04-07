@@ -40,12 +40,45 @@ export const registerUser = async(req, res) => {
         return res.status(201).json({
             _id: user._id,
             name: user.name,
-            email: user.name,
+            email: user.email,
             rollno: user.rollno
         })
     }
     catch(error){
         console.log(`Error in registering user : ${error}`)
         return res.status(500).json({message: "Internal error in registering user"})
+    }
+}
+
+export const loginUser = async(req, res) => {
+    try{
+        const {email, password} = req.body
+
+        if(!email || !password){
+            return res.status({message: "Email and password are required"})
+        }
+
+        const user = await User.findOne({email})
+        if(!user){
+            return res.status(400).json({message: "Invalid credentials"})
+        }
+
+        const isPasswordCorrect = await bcrypt.compare(password, user.password)
+        if(!isPasswordCorrect){
+            return res.status(400).json({message: "Invalid credentials"})
+        }
+
+        generateToken(user._id, "user", res)
+
+        return res.status(200).json({
+            _id: user._id,
+            name: user.name,
+            email: user.email,
+            rollno: user.rollno
+        })
+    }
+    catch(error) {
+        console.log(`Error in user login : ${error}`)
+        return res.status(500).json({message: "Internal error in user login"})
     }
 }
