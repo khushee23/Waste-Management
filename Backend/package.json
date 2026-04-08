@@ -17,6 +17,7 @@
   },
   "homepage": "https://github.com/khushee23/Waste-Management#readme",
   "dependencies": {
+    "bcryptjs": "^3.0.3",
     "cloudinary": "^2.9.0",
     "cookie-parser": "^1.4.7",
     "cors": "^2.8.6",

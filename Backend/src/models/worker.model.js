@@ -25,7 +25,16 @@ const workerSchema = new mongoose.Schema({
     tasksPending: [{
         type: Schema.Types.ObjectId, 
         ref: "Image"
-    }]
+    }],
+    lat:[{
+        type: Number,
+        required: true
+    },
+    lng:{
+        type: Number,
+        required: true  
+    }],
+        
 }, {timestamps: true})
 
 const Worker = mongoose.model("Worker", workerSchema)
